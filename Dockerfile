@@ -11,7 +11,7 @@ COPY . /app
 RUN npm install
 
 
-EXPOSE 8081
+EXPOSE 8082
 
 
 ENTRYPOINT ["node"]
