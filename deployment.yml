@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demospringalien
+  name: demospringalien
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demospringalien
+  template:
+    metadata:
+      labels:
+        app: demospringalien
+    spec:
+      containers:
+      - image: simhalp9/springali:11
+        name: demospringalien
+        
