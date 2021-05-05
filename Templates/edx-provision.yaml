@@ -182,6 +182,10 @@ Resources:
           FromPort: '80'
           ToPort: '80'
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
 
   DBSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
@@ -288,6 +292,7 @@ Resources:
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
         - arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess
+        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
 
   RootInstanceProfile: 
     Type: "AWS::IAM::InstanceProfile"
@@ -302,6 +307,7 @@ Resources:
       IamInstanceProfile: !Ref RootInstanceProfile
       ImageId: !FindInMap [ AWSRegion2AMI, !Ref "AWS::Region", AMI ]
       InstanceType: t2.micro
+      KeyName : edx-temp-public-key
       NetworkInterfaces:
         - DeviceIndex: '0'
           AssociatePublicIpAddress: 'true'
