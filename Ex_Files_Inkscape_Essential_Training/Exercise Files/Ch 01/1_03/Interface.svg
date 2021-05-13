@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="11in"
+   height="8.5in"
+   viewBox="0 0 990 764.99999"
+   id="svg3342"
+   version="1.1"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="Interface.svg">
+  <defs
+     id="defs3344" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.72671569"
+     inkscape:cx="486.80688"
+     inkscape:cy="377.93597"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="in"
+     inkscape:window-width="1280"
+     inkscape:window-height="697"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:document-rotation="0" />
+  <metadata
+     id="metadata3347">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-287.36221)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="384.25729"
+       y="890.69299"
+       id="text4324"><tspan
+         sodipodi:role="line"
+         id="tspan4326"
+         x="384.25729"
+         y="890.69299"
+         style="font-size:40px;line-height:1.25">Viking Ship</tspan></text>
+    <image
+       sodipodi:absref="C:\Users\jmvra\OneDrive\Desktop\Exercise Files\Ch 01\1_03\..\.\..\Links\vikingship.jpg"
+       xlink:href="..%5C.%5C..%5CLinks%5Cvikingship.jpg"
+       y="507.09421"
+       x="372.92401"
+       id="image4387"
+       preserveAspectRatio="none"
+       height="325.53599"
+       width="244.15199" />
+    <rect
+       style="fill:#000080;fill-rule:evenodd;stroke:#d40000;stroke-width:14.0625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect81"
+       width="118.68465"
+       height="325.53601"
+       x="196.18709"
+       y="507.09421" />
+  </g>
+</svg>
