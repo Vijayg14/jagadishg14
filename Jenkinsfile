@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        registry = "acct_id.dkr.ecr.us-east-.amazonaws.com/913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr"
+        registry = "913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr"
     }
    
     stages {
