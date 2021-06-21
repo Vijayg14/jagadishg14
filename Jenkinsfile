@@ -15,7 +15,8 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          docker build -t jenkinsecr .
+           dockerImage = docker.build registry
+          
         }
       }
     }
