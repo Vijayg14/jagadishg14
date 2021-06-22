@@ -1,5 +1,5 @@
 # this is my base image
-FROM alpine:3.13.3
+FROM alpine:3.13.5
 
 # Install python and pip
 RUN apk add --update py2-pip
