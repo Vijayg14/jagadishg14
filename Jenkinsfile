@@ -1,70 +1,49 @@
-pipeline{
-  environment {
-    scannerHome = tool 'SonarQubeScanner'
-    registry = "jaggu14"/"Vijayg@14"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-  }
-  agent any
+pipeline {
+    agent any
+    environment {
+        registry = "913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr"
+    }
+   
     stages {
-        stage('clean') {
+        stage('Cloning Git') {
             steps {
-                bat 'mvn clean'
+                checkout([$class: 'GitSCM', branches: [[name: '*/ppd']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/Vijayg14/jagadishg14']]])     
             }
         }
-        stage('build and test') {
-            steps {
-                bat 'mvn package'
-            }
+  
+    // Building Docker images
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry
         }
-        stage('Building image') {
-            steps{
-                script {
-                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-             }
-          }
-          stage('Push Image') {
-              steps{
-                  script {
-                      docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push()
-                      }
-                  }
-              }
-            }
-         stage('Sonarqube') {
- 
-            steps {
-              script {
-                  withSonarQubeEnv('sonarqube') {
-                  bat "${scannerHome}/bin/sonar-scanner"
-                    }
-                  }
-               }
-          }
-      stage("SonarQube Quality Gate"){
-        steps {
-          script {
-               timeout(time: 5, unit: 'MINUTES') { 
-               def qualitygate = waitForQualityGate() 
-               if (qualitygate.status != 'OK') {
-               abortPipeline:true
-               error "Pipeline aborted due to quality gate failure: ${qualitygate.status}"
-                 }
-               else {
-               echo "Quality gate passed"
-                  }
-              }
-           }
+      }
+    }
+   
+    // Uploading Docker images into AWS ECR
+    stage('Pushing to ECR') {
+     steps{  
+         script {
+                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 913665488114.dkr.ecr.us-east-1.amazonaws.com'
+                sh 'docker push 913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr:latest'
+         }
+        }
+      }
+   
+         // Stopping Docker containers for cleaner Docker run
+     stage('stop previous containers') {
+         steps {
+            sh 'docker ps -f name=mypythonContainer -q | xargs --no-run-if-empty docker container stop'
+            sh 'docker container ls -a -fname=mypythonContainer -q | xargs -r docker container rm'
          }
        }
       
-      stage('Deploying into k8s'){
-        steps{
-          bat 'kubectl apply -f deployment.yml'
-          bat 'kubectl apply -f service.yml'
-        }
+    stage('Docker Run') {
+     steps{
+         script {
+                sh 'docker run -d -p 8096:5000 --rm --name mypythonContainer 913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr:latest'
+            }
       }
-  }
+    }
+    }
 }
