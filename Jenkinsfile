@@ -24,8 +24,8 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 913665488114.dkr.ecr.us-east-1.amazonaws.com'
-                sh 'docker push 913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr:latest'
+                 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 913665488114.dkr.ecr.us-east-1.amazonaws.com'
+                 'docker push 913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr:latest'
          }
         }
       }
@@ -33,15 +33,15 @@ pipeline {
          // Stopping Docker containers for cleaner Docker run
      stage('stop previous containers') {
          steps {
-            sh 'docker ps -f name=mypythonContainer -q | xargs --no-run-if-empty docker container stop'
-            sh 'docker container ls -a -fname=mypythonContainer -q | xargs -r docker container rm'
+               'docker ps -f name=mypythonContainer -q | xargs --no-run-if-empty docker container stop'
+               'docker container ls -a -fname=mypythonContainer -q | xargs -r docker container rm'
          }
        }
       
     stage('Docker Run') {
      steps{
          script {
-                sh 'docker run -d -p 8096:5000 --rm --name mypythonContainer docker push 913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr:latest'
+                  'docker run -d -p 8096:5000 --rm --name mypythonContainer docker push 913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr:latest'
             }
       }
     }
