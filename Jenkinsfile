@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/newtest']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/Vijayg14/jagadishg14']]])     
+                checkout([$class: 'GitSCM', branches: [[name: '*/macro']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/Vijayg14/jagadishg14']]])     
             }
         }
   
