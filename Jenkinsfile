@@ -28,7 +28,17 @@ pipeline {
                 sh 'docker push 913665488114.dkr.ecr.us-east-1.amazonaws.com/iamrepo:latest'
          }
         }
-      }
+      } stage ('K8S Deploy') {
+        steps {
+            script {
+                kubernetesDeploy(
+                    configs: 'k8s-deployment.yaml',
+                    kubeconfigId: 'K8S',
+                    enableConfigSubstitution: true
+                    )           
+               
+            }
+
    
          // Stopping Docker containers for cleaner Docker run
      stage('stop previous containers') {
