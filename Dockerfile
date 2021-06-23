@@ -1,4 +1,4 @@
-FROM alpine:3.11.5
+FROM alpine:3.5
 
 # Install python and pip
 RUN apk add --update py2-pip
