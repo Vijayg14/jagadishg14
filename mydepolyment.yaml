@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-php-app
-        image: 913665488114.dkr.ecr.us-east-1.amazonaws.com/iamrepo:latest
+        image: akdevopscoaching/mypython-app
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

@@ -32,7 +32,7 @@ pipeline {
         steps {
             script {
                 kubernetesDeploy(
-                    configs: 'eks-depoly-from-ecr.yml',
+                    configs: 'k8s-deployment.yml',
                     kubeconfigId: 'K8S',
                     enableConfigSubstitution: true
                     )           
