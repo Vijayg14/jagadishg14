@@ -29,6 +29,13 @@ node {
             }
         }
     }
+    stage ('Kubernetes Deploy') {
+        kubernetesDeploy(
+            configs: 'maven/springBootDeploy.yml',
+            kubeconfigId: 'K8S',
+            enableConfigSubstitution: true
+            )
+    }
     
        stage('docker stop container') {
             sh 'docker ps -f name=myContainer -q | xargs --no-run-if-empty docker container stop'
