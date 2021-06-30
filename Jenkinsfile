@@ -26,8 +26,8 @@ pipeline {
     stage('Push to GCR ') {
      steps{    
          script {
-             sh 'docker login -u _json_key -p "$(cat keyfile.json)" https://gcr.io'
-             sh 'docker push  gcr.io/fast-haiku-318314/my-app2:green'
+             sh 'gcloud docker login -u _json_key -p "$(cat keyfile.json)" https://gcr.io'
+             sh ' gcloud docker push  gcr.io/fast-haiku-318314/my-app2:green'
             }
      }
     }
