@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "fast-haiku-318314",
+  "private_key_id": "24deafdb220eed12fc4ca3430b95a8a736507ac7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCmHz9daOJyXcvt\ng4Ls1N8A7NM92iXsEnCZ0vjv5Qv04UjK35rZqIbceGSBlZrxwDetYr+a430R7ZG6\nBdflJM0eUQvVqVAb7ZVEzouDJIjIBHanoorMXu6LfycCFHWUUw94H2p9yLUJauiu\nC02hQCQH4wTx8uNnc4yWmO+LwVZduGardq4t1U9OLEQ1759/O0RwqwbNV6wmiD/a\nq0W2HAWf5Pk9JqTlOJq3H6LA7IC47mvTUNuDdEVblatbdZnl8zE1b6f5Nz4hnRnl\nQuF1rAF3S0TaUaLXj7YNutQUALVJHyyY66Wi5/nChakIqrRf7IJtrcPNmV8NYa9z\nxJ4ZpCUNAgMBAAECggEAFVOOoXHNHGyRORE4linv5SECL38ZfjiRzxWoErgfdFUV\nsMHLEeVSRuyHzqEDrsSEAVTbj0lkLZCHtE96u3ahhKJX+BqP5730+0ve2juu+aql\nBvlVg04upqbwvZId1ChjpIK3+6TwJODeNTXLRgfDeGW7JUqOyiGp601/9zufWFGW\ne9dkAFqmL1zhZjTa5oJ7GFnxn9rkPNulM85BdOrAhhfoiTFSg8sSArz3IkOB784m\ntQAz4MRHkuse19yG0oe+1wfq59se+wj/SkVUx9m33dU4O050XPVHX+tEAhf4f9qS\nN9qrrGBnqOS4TTiGBj4O6FvVt3MosmX/INITTIVtqwKBgQDdT3L2woJeGZDgO2I+\nCRegbpxCDKa3EVWM3PIKOK6Xgv5aAey5rP56RmKGXJNYD13K0kyO9Iq+hyVcLKig\nBUpQeX9Jiu1hWJUX0IL+p08IvwcSbybjcYn2lVlp+f5PCuosQGsZCszKpsrqGrPT\n8cA9qYkKyGfHLzB5+/Ea/sUlRwKBgQDAKUAarko1WNgKFCJF/WB99rzQOts30UXO\nQWUnX0xP08VcbNed/d1rtUbjurof3+PkkCorZLhQvUMtfDJLGfuNgdCimEcB2y6M\nsxrNFziqSrm8UHYcYxESbJnUMMzQaL4DZAWyu7vyDACSDRTiv/1IyP09tH03Poyw\nDMrCubmdCwKBgBfSC1/AA+Q5AD0CZ0qiE+bywOLjFbayqPCmf27WNwSb1uC9QEuj\n8SgcF1K6+CkMTl4cUJ06eQyU41KOg//lUeBjk23JBE/sBvAvQ0pBm+InHY3AZQEq\nIV1nKd6cR+EeHaJxtJVXcj+FwGV+RkjTxotciiGc/H6V97PJiGQNdA7VAoGAayaV\nWEtXlee0j+oqMlzXMWYkYvhuxPEsu5Y7kXjSVLEBnEgU80Rb83Nh1BqLLrrpmMnK\nueev31Wp3/MhGD+kxYNdk0zWS3Kswkgc6b/JGSwR5a/4LFwRaPSl0mxjyNKfIcTk\naIXGh3Gp38brnoTv92Yb0AyUxfla+dAoP+zQU4ECgYEAsB6zoGud5j76QrXKlamo\nul8SJz+JDjM7+qkuvy8118GpejB8UoFVeMWhu7cHyLrCD9tBHJ3J62o63nCK0CEe\nfLt2Tr6KFxfUm/opHHx5iilDxDZTaAtrclx/8pvgVVjNihBeKnN3wg2PHxkEiZzY\nADDbhf+syTnXQnKZ/7USWO8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "jenkins@fast-haiku-318314.iam.gserviceaccount.com",
+  "client_id": "109268226407005029161",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jenkins%40fast-haiku-318314.iam.gserviceaccount.com"
+}
