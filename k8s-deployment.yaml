@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-php-app
-        image: akdevopscoaching/mypython-app
+        image: gcr.io/fast-haiku-318314/my-app2:blue
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

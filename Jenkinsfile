@@ -29,6 +29,17 @@ pipeline {
              sh 'gcloud docker login -u _json_key -p "$(cat keyfile.json)" https://gcr.io'
              sh ' gcloud docker push  gcr.io/fast-haiku-318314/my-app2:green'
             }
+            stage ('K8S Deploy') {
+        steps {
+            script {
+                kubernetesDeploy(
+                    configs: 'k8s-deployment.yaml',
+                    kubeconfigId: 'K8S',
+                    enableConfigSubstitution: true
+                    )           
+               
+            }
+        }
      }
     }
         }
