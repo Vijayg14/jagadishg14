@@ -19,38 +19,20 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build registry
-        }
-      }
-    }
+           dockerImage = docker.build registry
+    
     
      // Uploading Docker images into Docker Hub
-    stage('Upload Image') {
+    stage('Push to GCR ') {
      steps{    
          script {
-            sh 'gcloud auth configure-docker'
-            sh 'docker push  gcr.io/fast-haiku-318314/my-app2:green'
+             sh 'docker login -u _json_key -p "$(cat keyfile.json)" https://gcr.io'
+             sh 'docker push  gcr.io/fast-haiku-318314/my-app2:green'
             }
+     }
+    }
         }
-      }
-    }
-    
-     // Stopping Docker containers for cleaner Docker run
-     stage('docker stop container') {
-         steps {
-            sh 'docker ps -f name=mypythonContainer -q | xargs --no-run-if-empty docker container stop'
-            sh 'docker container ls -a -fname=mypythonContainer -q | xargs -r docker container rm'
-         }
-       }
-    
-    
-    // Running Docker container, make sure port 8096 is opened in 
-    stage('Docker Run') {
-     steps{
-         script {
-            dockerImage.run("-p 8096:5000 --rm --name mypythonContainer")
-         }
-      }
-    }
-  }
+}
+}
+}
 }
