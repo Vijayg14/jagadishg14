@@ -1,59 +1,50 @@
 pipeline {
-    agent any
+    agent any 
     environment {
-        registry = "913665488114.dkr.ecr.us-east-1.amazonaws.com/iamrepo"
+        //TODO # 1 --> once you sign up for Docker hub, use that user_id here
+        registry = "gcr.io/fast-haiku-318314/my-app2:green"
+        //TODO #2 - update your credentials ID after creating credentials for connecting to Docker Hub
+       // registryCredential = 'fa32f95a-2d3e-4c7b-8f34-11bcc0191d70'
+        //dockerImage = ''
     }
-   
+    
     stages {
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/newtest']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/Vijayg14/jagadishg14']]])     
+                checkout([$class: 'GitSCM', branches: [[name: 'newtest']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/Vijayg14/jagadishg14.git']]])       
             }
         }
-  
+    
     // Building Docker images
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build registry
-        }
-      }
-    }
-   
-    // Uploading Docker images into AWS ECR
-    stage('Pushing to ECR') {
-     steps{  
+           dockerImage = docker.build registry
+    
+    
+     // Uploading Docker images into Docker Hub
+    stage('Push to GCR ') {
+     steps{    
          script {
-                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 913665488114.dkr.ecr.us-east-1.amazonaws.com'
-                sh 'docker push 913665488114.dkr.ecr.us-east-1.amazonaws.com/iamrepo:latest'
-         }
-        }
-      } stage ('K8S Deploy') {
+             sh 'gcloud docker login -u _json_key -p "$(cat keyfile.json)" https://gcr.io'
+             sh ' gcloud docker push  gcr.io/fast-haiku-318314/my-app2:green'
+            }
+    stage ('K8S Deploy') {
         steps {
             script {
                 kubernetesDeploy(
-                    configs: 'k8s-deployment.yml',
+                    configs: 'mydeployment.yaml',
                     kubeconfigId: 'K8S',
                     enableConfigSubstitution: true
                     )           
                
             }
-
-   
-         // Stopping Docker containers for cleaner Docker run
-     stage('stop previous containers') {
-         steps {
-            sh 'docker ps -f name=mypythonContainer -q | xargs --no-run-if-empty docker container stop'
-            sh 'docker container ls -a -fname=mypythonContainer -q | xargs -r docker container rm'
-         }
-       }
-      
-    stage('Docker Run') {
-     steps{
-         script {
-                sh 'docker run -d -p 8096:5000 --rm --name mypythonContainer 913665488114.dkr.ecr.us-east-1.amazonaws.com/jenkinsecr:latest'
-            }
-      }
+        }
+     }
     }
-    }
+        }
+}
+}
+}
+}
 }
