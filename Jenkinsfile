@@ -26,7 +26,7 @@ pipeline {
     stage('Push to GCR ') {
      steps{    
          script {
-             sh 'gcloud docker login -u _json_key -p "$(cat keyfile.json)" https://gcr.io'
+             sh 'gcloud docker login -u _json_key -p "$(jenkins-sa.json)" https://gcr.io'
              sh ' gcloud docker push  gcr.io/fast-haiku-318314/my-app2:green'
             }
     stage ('K8S Deploy') {
